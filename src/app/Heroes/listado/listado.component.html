@@ -1,0 +1,57 @@
+<p>listado works!</p>
+
+<p> LISTADO DE HEROES UWU </p>
+
+
+    <!--esto se lee asi "si heroe borrado es distinto a vació entonces..."
+    el signo ! es de negación-->
+
+    <div *ngIf="heroeBorrado; else noBorrado">
+        <h3>
+            heroe Borrado:  
+        
+        <small> {{heroeBorrado}} </small></h3>
+     <!--el ng-template es un componente propio de Angular, va a mostrar el contenido basado en una condicion
+         la referencia local se identifican por el simbolo de numeral (#) -->
+        </div>
+    <ng-template #noBorrado>
+    
+        <h3>no ha borrado nada</h3>
+
+    </ng-template> > 
+       
+         
+    
+    
+    
+
+
+
+
+    <button (click)="borrarHeroe()"> 
+        BORRAR
+
+    </button>
+
+<!--PARA HACER APARECER LOS HEROES QUE SE DEFINIERON EN LISTADO.COMPONENT.TS 
+    se usara *ngFor éste es bien simmilar al ciclo FOR
+DESPUES DE COLOR EL NGFOR LO PRIMORDIAL ES LLAMAR MEDIANTE {{ }} A LA VARIABLE DEFINIDA EN LISTADO.COMPONENT.TS
+Y ASÍ OBTENDREMOS LA SALIDA QUE ESPERAMOS-->
+<ul>
+    <li
+        *ngFor="let heroe of heroes; let i=index">
+         {{ i+1 }} - {{heroe}}
+    </li>
+   
+
+</ul>
+<div>
+ 
+    <span>
+       {{ heroeBorrado }} 
+    </span>
+</div>
+
+
+<!--Si queremos mostrar algun elemento en el HTML 
+DE ALGUNA MANERA HAY QUE TENER UN METODO O PROPIEDAD PARA MOSTRARLO-->
